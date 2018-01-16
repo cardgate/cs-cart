@@ -97,7 +97,7 @@ class Cardgate
     // version
     const pluginName = 'cs_cart';
 
-    const pluginVersion = '4.4.1';
+    const pluginVersion = '4.4.2';
 
     public function __construct($merchantid, $merchantkey, $shopid)
     {
@@ -196,14 +196,14 @@ class Cardgate
             }
             
             // Configure customer.
-            $oCustomer = $oTransaction->getCustomer();
-            $oCustomer->setEmail($data['billing_mail']);
-            $oCustomer->address()->setFirstName($data['billing_firstname']);
-            $oCustomer->address()->setLastName($data['billing_lastname']);
-            $oCustomer->address()->setAddress(trim($data['billing_address1'] . ' ' . $data['billing_address2']));
-            $oCustomer->address()->setZipCode($data['billing_zip']);
-            $oCustomer->address()->setCity($data['billing_city']);
-            $oCustomer->address()->setCountry($data['billing_countrycode']);
+            $oConsumer = $oTransaction->getConsumer();
+            $oConsumer->setEmail($data['billing_mail']);
+            $oConsumer->address()->setFirstName($data['billing_firstname']);
+            $oConsumer->address()->setLastName($data['billing_lastname']);
+            $oConsumer->address()->setAddress(trim($data['billing_address1'] . ' ' . $data['billing_address2']));
+            $oConsumer->address()->setZipCode($data['billing_zip']);
+            $oConsumer->address()->setCity($data['billing_city']);
+            $oConsumer->address()->setCountry($data['billing_countrycode']);
             
             $oCart = $oTransaction->getCart();
             // Items
