@@ -13,7 +13,7 @@ This plugin ondersteund CS.Cart versie **4.4.x-4.6.x**.
 ## Preparation
 
 Voor het gebruik van deze module zijn CardGate RESTful gegevens nodig.
-Bezoek hiervoor [Mijn Cardgate](https://my.cardgate.com/) en haal daar je 
+Bezoek hiervoor [Mijn CardGate](https://my.cardgate.com/) en haal daar je 
 RESTful API gebruikersnaam en wachtwoord, of neem contact op met uw accountmanager.
 
 ## Installation
@@ -45,7 +45,7 @@ RESTful API gebruikersnaam en wachtwoord, of neem contact op met uw accountmanag
 
 7. Kies dan voor de **Configureren** tab.
 
-8. Vul de **Site ID** en de **Hash key** in, deze kun je vinden bij **Sites** op [Mijn Cardgate](https://my.cardgate.com/).
+8. Vul de **Site ID** en de **Hash key** in, deze kun je vinden bij **Sites** op [Mijn CardGate](https://my.cardgate.com/).
 
 9. Vul de **Merchant ID** en de **Merchant API Key** in die je van CardGate hebt ontvangen.
 
