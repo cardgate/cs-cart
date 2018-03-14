@@ -10,13 +10,13 @@
 
 This plugin ondersteund CS.Cart versie **4.4.x-4.6.x**.
 
-## Preparation
+## Voorbereiding
 
 Voor het gebruik van deze module zijn CardGate RESTful gegevens nodig.
 Bezoek hiervoor [Mijn CardGate](https://my.cardgate.com/) en haal daar je 
 RESTful API gebruikersnaam en wachtwoord, of neem contact op met uw accountmanager.
 
-## Installation
+## Installatie
 
 1. Download en unzip het **cardgate.zip** bestand op je bureaublad.
 
@@ -29,7 +29,7 @@ RESTful API gebruikersnaam en wachtwoord, of neem contact op met uw accountmanag
 
 4. Verwijder het bestand **cardgate_install.php** uit de **root map** van je webshop.
 
-## Configuration
+## Configuratie
 
 1. Login op het **admin** gedeelte van je webshop.
 
@@ -60,7 +60,3 @@ RESTful API gebruikersnaam en wachtwoord, of neem contact op met uw accountmanag
 14. De instellingen van de **Algemeen** tab gelden per **specifieke** betaalmethode.
 
 15. Zorg ervoor dat je **na het testen** omschakelt van **Test Mode** naar **Live mode** in de **CardGate Generic** betaalmethode en sla het op (**Save**).
-
-## Requirements
-
-No further requirements.
