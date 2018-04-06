@@ -2,10 +2,6 @@
 
 # CardGate module for CS.Cart
 
-[![Total Downloads](https://img.shields.io/packagist/dt/cardgate/cscart.svg)](https://packagist.org/packages/cardgate/cscart)
-[![Latest Version](https://img.shields.io/packagist/v/cardgate/cscart.svg)](https://github.com/cardgate/cscart/releases)
-[![Build Status](https://travis-ci.org/cardgate/cscart.svg?branch=master)](https://travis-ci.org/cardgate/cscart)
-
 ## Support
 
 This plugin supports CS.Cart version **4.4.x-4.6.x**.
