@@ -1,10 +1,6 @@
 ![CardGate](https://cdn.curopayments.net/thumb/200/logos/cardgate.png)
 
-# CardGate module for CS.Cart
-
-[![Total Downloads](https://img.shields.io/packagist/dt/cardgate/cscart.svg)](https://packagist.org/packages/cardgate/cscart)
-[![Latest Version](https://img.shields.io/packagist/v/cardgate/cscart.svg)](https://github.com/cardgate/cscart/releases)
-[![Build Status](https://travis-ci.org/cardgate/cscart.svg?branch=master)](https://travis-ci.org/cardgate/cscart)
+# CardGate module voor CS.Cart
 
 ## Support
 
@@ -14,7 +10,7 @@ This plugin ondersteund CS.Cart versie **4.4.x-4.6.x**.
 
 Voor het gebruik van deze module zijn CardGate RESTful gegevens nodig.
 Bezoek hiervoor [Mijn CardGate](https://my.cardgate.com/) en haal daar je 
-RESTful API gebruikersnaam en wachtwoord, of neem contact op met uw accountmanager.
+RESTful API gebruikersnaam en wachtwoord op, of neem contact op met je accountmanager.
 
 ## Installatie
 

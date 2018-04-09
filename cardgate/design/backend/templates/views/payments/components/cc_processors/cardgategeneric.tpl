@@ -1,17 +1,17 @@
 
 <div class="control-group">
-	<label class="control-label" for="shopid">Site ID:</label>
+	<label class="control-label" for="shopid">Site Id:</label>
 	<div class="controls">
 	<input type="text" name="payment_data[processor_params][shopid]" id="shopid" value="{$processor_params.shopid}"  size="40" />
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="hashkey">Hash key:</label>
+	<label class="control-label" for="hashkey">Hash Key:</label>
 	<div class="controls">
 	<input type="text" name="payment_data[processor_params][hashkey]" id="hashkey" value="{$processor_params.hashkey}"  size="40" />
 	</div>
 </div><div class="control-group">
-	<label class="control-label" for="merchantid">Merchant ID:</label>
+	<label class="control-label" for="merchantid">Merchant Id:</label>
 	<div class="controls">
 	<input type="text" name="payment_data[processor_params][merchantid]" id="merchantid" value="{$processor_params.merchantid}" size="20" />
 	</div>
