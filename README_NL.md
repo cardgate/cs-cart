@@ -41,9 +41,9 @@ gegevens op, of neem contact op met je accountmanager.
 
 7. Kies dan voor de **Configureren** tab.
 
-8. Vul de **Site ID** en de **Hash key** in, deze kun je vinden bij **Sites** op [Mijn CardGate](https://my.cardgate.com/).
+8. Vul de **site ID** en de **hash key** in, deze kun je vinden bij **Sites** op [Mijn CardGate](https://my.cardgate.com/).
 
-9. Vul de **Merchant ID** en de **API key** in die je van CardGate hebt ontvangen.
+9. Vul de **merchant ID** en de **API key** in die je van CardGate hebt ontvangen.
 
 10. Stel de Testmode in op **Test** voor een test transactie.
 

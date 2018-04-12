@@ -41,9 +41,9 @@ Please visit [My Cardgate](https://my.cardgate.com/) and retrieve your credentia
 
 7. Choose the **Configure** tab.
 
-8. Enter the **Site ID**, and **Hash key** which you can find at **Sites** on <a href="https://my.cardgate.com" target='new'>My CardGate</a>.
+8. Enter the **site ID**, and **hash key** which you can find at **Sites** on <a href="https://my.cardgate.com" target='new'>My CardGate</a>.
 
-9. Enter the **Merchant ID** and the **API key** which you have received from CardGate.
+9. Enter the **merchant ID** and the **API key** which you have received from CardGate.
 
 10. Set the testmode to **Test** for a test transaction.
 
