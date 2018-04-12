@@ -1,23 +1,23 @@
 
 <div class="control-group">
-	<label class="control-label" for="shopid">Site Id:</label>
+	<label class="control-label" for="shopid">Site ID:</label>
 	<div class="controls">
 	<input type="text" name="payment_data[processor_params][shopid]" id="shopid" value="{$processor_params.shopid}"  size="40" />
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="hashkey">Hash Key:</label>
+	<label class="control-label" for="hashkey">Hash key:</label>
 	<div class="controls">
 	<input type="text" name="payment_data[processor_params][hashkey]" id="hashkey" value="{$processor_params.hashkey}"  size="40" />
 	</div>
 </div><div class="control-group">
-	<label class="control-label" for="merchantid">Merchant Id:</label>
+	<label class="control-label" for="merchantid">Merchant ID:</label>
 	<div class="controls">
 	<input type="text" name="payment_data[processor_params][merchantid]" id="merchantid" value="{$processor_params.merchantid}" size="20" />
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="merchantkey">Merchant API Key:</label>
+	<label class="control-label" for="merchantkey">API key:</label>
 	<div class="controls">
 	<input type="text" name="payment_data[processor_params][merchantkey]" id="merchantkey" value="{$processor_params.merchantkey}"  size="60" />
 	</div>
