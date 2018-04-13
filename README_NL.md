@@ -33,7 +33,7 @@ gegevens op, of neem contact op met je accountmanager.
 
 3. Klik op de **Betaalmethode toevoegen** knop.
 
-4. Eerst moet de **CardGate Generic** betaalmethode ingesteld worden. In deze betaalmethode zitten de instellingen voor alle Cardgate betaalmethoden.
+4. Eerst moet de **CardGate Generic** betaalmethode ingesteld worden. In deze betaalmethode zitten de instellingen voor alle CardGate betaalmethoden.
 
 5. Vul de naam in van de Algemene betaalmethode en kies de **CardGate Generic** betaalmethode uit het **Verwerkingseenheid** menu.
 

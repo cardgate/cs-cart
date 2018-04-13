@@ -9,7 +9,7 @@ This plugin supports CS.Cart version **4.4.x-4.6.x**.
 ## Preparation
 
 The usage of this module requires that you have obtained CardGate RESTful API credentials.
-Please visit [My Cardgate](https://my.cardgate.com/) and retrieve your credentials, or contact your accountmanager.
+Please visit [My CardGate](https://my.cardgate.com/) and retrieve your credentials, or contact your accountmanager.
 
 ## Installation
 
