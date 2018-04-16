@@ -2,10 +2,6 @@
 
 # CardGate module for CS.Cart
 
-[![Total Downloads](https://img.shields.io/packagist/dt/cardgate/cscart.svg)](https://packagist.org/packages/cardgate/cscart)
-[![Latest Version](https://img.shields.io/packagist/v/cardgate/cscart.svg)](https://github.com/cardgate/cscart/releases)
-[![Build Status](https://travis-ci.org/cardgate/cscart.svg?branch=master)](https://travis-ci.org/cardgate/cscart)
-
 ## Support
 
 This plugin supports CS.Cart version **4.4.x-4.6.x**.
@@ -13,7 +9,7 @@ This plugin supports CS.Cart version **4.4.x-4.6.x**.
 ## Preparation
 
 The usage of this module requires that you have obtained CardGate RESTful API credentials.
-Please visit [My Cardgate](https://my.cardgate.com/) and retrieve your RESTful API username and password, or contact your accountmanager.
+Please visit [My CardGate](https://my.cardgate.com/) and retrieve your credentials, or contact your accountmanager.
 
 ## Installation
 
@@ -21,7 +17,7 @@ Please visit [My Cardgate](https://my.cardgate.com/) and retrieve your RESTful A
 
 2. Upload the **contents** of the zip file to the **root folder** of your webshop.
 
-3. Open the URL **http://mywebshop.com/cardgate_install.php** in your browser, which will install the plug-in. (Replace **http://mywebshop.com** with the URL of your webshop)
+3. Open the URL **http://mywebshop.com/cardgate_install.php** in your browser, which will install the plug-in. (Replace **http://mywebshop.com** with the URL of your webshop.)
 
 4. Delete the file **cardgate_install.php** from the **root folder** of your webshop.
 
@@ -45,11 +41,11 @@ Please visit [My Cardgate](https://my.cardgate.com/) and retrieve your RESTful A
 
 7. Choose the **Configure** tab.
 
-8. Enter the **Site ID**, and **Hash key** which you can find at **Sites** on <a href="https://my.cardgate.com" target='new'>My CardGate</a>.
+8. Enter the **site ID**, and **hash key** which you can find at **Sites** on <a href="https://my.cardgate.com" target='new'>My CardGate</a>.
 
-9. Enter the **Merchant ID** and the **Merchant API Key** which you have received from CardGate.
+9. Enter the **merchant ID** and the **API key** which you have received from CardGate.
 
-10. Set the testmode to **Test** for a test transaction
+10. Set the testmode to **Test** for a test transaction.
 
 11. Fill in the other details and click on the **Save** button.
 

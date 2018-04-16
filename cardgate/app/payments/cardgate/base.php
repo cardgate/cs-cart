@@ -334,7 +334,6 @@ if (defined('PAYMENT_NOTIFICATION')) {
             $items[$nr]['quantity'] = 1;
             $items[$nr]['price_wt'] = round(fn_format_price($order_info['subtotal_discount'], $currency) * 100.0*-1, 0);
             $items[$nr]['vat'] = $productTaxrate;
-            //$items[$nr]['vat'] = 0;
             $items[$nr]['vat_amount'] = 0;
         }
         

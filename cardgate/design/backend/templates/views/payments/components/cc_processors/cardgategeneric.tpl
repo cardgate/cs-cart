@@ -17,7 +17,7 @@
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="merchantkey">Merchant API Key:</label>
+	<label class="control-label" for="merchantkey">API key:</label>
 	<div class="controls">
 	<input type="text" name="payment_data[processor_params][merchantkey]" id="merchantkey" value="{$processor_params.merchantkey}"  size="60" />
 	</div>

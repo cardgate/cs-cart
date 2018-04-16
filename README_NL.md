@@ -1,20 +1,16 @@
 ![CardGate](https://cdn.curopayments.net/thumb/200/logos/cardgate.png)
 
-# CardGate module for CS.Cart
-
-[![Total Downloads](https://img.shields.io/packagist/dt/cardgate/cscart.svg)](https://packagist.org/packages/cardgate/cscart)
-[![Latest Version](https://img.shields.io/packagist/v/cardgate/cscart.svg)](https://github.com/cardgate/cscart/releases)
-[![Build Status](https://travis-ci.org/cardgate/cscart.svg?branch=master)](https://travis-ci.org/cardgate/cscart)
+# CardGate module voor CS.Cart
 
 ## Support
 
-This plugin ondersteund CS.Cart versie **4.4.x-4.6.x**.
+Deze plugin ondersteunt CS.Cart versie **4.4.x-4.6.x**.
 
 ## Voorbereiding
 
 Voor het gebruik van deze module zijn CardGate RESTful gegevens nodig.
 Bezoek hiervoor [Mijn CardGate](https://my.cardgate.com/) en haal daar je 
-RESTful API gebruikersnaam en wachtwoord, of neem contact op met uw accountmanager.
+gegevens op, of neem contact op met je accountmanager.
 
 ## Installatie
 
@@ -25,9 +21,9 @@ RESTful API gebruikersnaam en wachtwoord, of neem contact op met uw accountmanag
 3. Zorg ervoor dat je **cache leeg** is. Wellicht moeten de Smarty templates opnieuw worden gecompileerd voordat de template aanpassingen **zichtbaar** zijn.
    Doe dit door de parameter **ctpl** aan je admin URL toe te voegen.
 
-3. Open the URL **http://mywebshop.com/cardgate_install.php** in je browser, zodat de plug-in installeert. (Vervang **http://mywebshop.com** met de URL van je webshop.)
+4. Open the URL **http://mywebshop.com/cardgate_install.php** in je browser, zodat de plug-in installeert. (Vervang **http://mywebshop.com** met de URL van je webshop.)
 
-4. Verwijder het bestand **cardgate_install.php** uit de **root map** van je webshop.
+5. Verwijder het bestand **cardgate_install.php** uit de **root map** van je webshop.
 
 ## Configuratie
 
@@ -37,7 +33,7 @@ RESTful API gebruikersnaam en wachtwoord, of neem contact op met uw accountmanag
 
 3. Klik op de **Betaalmethode toevoegen** knop.
 
-4. Eerst moet de **CardGate Generic** betaalmethode ingesteld worden. In deze betaalmethode zitten de instellingen voor alle Cardgate betaalmethoden.
+4. Eerst moet de **CardGate Generic** betaalmethode ingesteld worden. In deze betaalmethode zitten de instellingen voor alle CardGate betaalmethoden.
 
 5. Vul de naam in van de Algemene betaalmethode en kies de **CardGate Generic** betaalmethode uit het **Verwerkingseenheid** menu.
 
@@ -45,9 +41,9 @@ RESTful API gebruikersnaam en wachtwoord, of neem contact op met uw accountmanag
 
 7. Kies dan voor de **Configureren** tab.
 
-8. Vul de **Site ID** en de **Hash key** in, deze kun je vinden bij **Sites** op [Mijn CardGate](https://my.cardgate.com/).
+8. Vul de **site ID** en de **hash key** in, deze kun je vinden bij **Sites** op [Mijn CardGate](https://my.cardgate.com/).
 
-9. Vul de **Merchant ID** en de **Merchant API Key** in die je van CardGate hebt ontvangen.
+9. Vul de **merchant ID** en de **API key** in die je van CardGate hebt ontvangen.
 
 10. Stel de Testmode in op **Test** voor een test transactie.
 
