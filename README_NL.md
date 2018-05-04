@@ -14,14 +14,15 @@ gegevens op, of neem contact op met je accountmanager.
 
 ## Installatie
 
-1. Download en unzip het **cardgate.zip** bestand op je bureaublad.
+1. Download en unzip de meest recente [source code](https://github.com/cardgate/cs-cart/releases) op je bureaublad.
 
-2. Upload de **inhoud** van de zipfile naar de **root** map van je webshop.
+2. Upload de **inhoud** van de **cardgate** map naar de **root** map van je webshop.
 
 3. Zorg ervoor dat je **cache leeg** is. Wellicht moeten de Smarty templates opnieuw worden gecompileerd voordat de template aanpassingen **zichtbaar** zijn.
    Doe dit door de parameter **ctpl** aan je admin URL toe te voegen.
 
-4. Open the URL **http://mywebshop.com/cardgate_install.php** in je browser, zodat de plug-in installeert. (Vervang **http://mywebshop.com** met de URL van je webshop.)
+4. Open the URL **http://mywebshop.com/cardgate_install.php** in je browser, zodat de plug-in installeert.  
+   (Vervang **http://mywebshop.com** met de URL van je webshop.)
 
 5. Verwijder het bestand **cardgate_install.php** uit de **root map** van je webshop.
 
