@@ -8,7 +8,7 @@ Deze plugin ondersteunt CS.Cart versie **4.4.x-4.6.x**.
 
 ## Voorbereiding
 
-Voor het gebruik van deze module zijn CardGate RESTful gegevens nodig.
+Voor het gebruik van deze module zijn CardGate RESTful gegevens nodig.  
 Bezoek hiervoor [Mijn CardGate](https://my.cardgate.com/) en haal daar je 
 gegevens op, of neem contact op met je accountmanager.
 
