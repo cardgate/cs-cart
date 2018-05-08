@@ -4,7 +4,7 @@
 
 ## Support
 
-Deze plugin ondersteunt CS.Cart versie **4.4.x-4.6.x**.
+Deze plugin ondersteunt CS.Cart versie **4.4.x-4.7.x**
 
 ## Voorbereiding
 
@@ -57,3 +57,7 @@ gegevens op, of neem contact op met je accountmanager.
 14. De instellingen van de **Algemeen** tab gelden per **specifieke** betaalmethode.
 
 15. Zorg ervoor dat je **na het testen** omschakelt van **Test Mode** naar **Live mode** in de **CardGate Generic** betaalmethode en sla het op (**Save**).
+
+## Vereisten
+
+Geen verdere vereisten.
