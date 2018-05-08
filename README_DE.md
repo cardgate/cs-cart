@@ -20,7 +20,7 @@ Gehen zu [My CardGate](https://my.cardgate.com/) und fragen Sie Ihre Zugangsdate
 3. Sorgen Sie dafür, dass der **Cache leer** ist. Eventuell müssen die Smarty Templates erneut kompiliert werden, bevor die Template-Anpassungen **sichtbar** sind.  
    Das machen Sie indem Sie den Parameter **ctpl** an Ihre admin URL hinzufügen.
 
-4. Öffnen Sie die URL **http://mywebshop.com/cardgate_install.php** in Ihrem Browser,  wodurch das Plugin installiert wird. 
+4. Öffnen Sie die URL **http://mywebshop.com/cardgate_install.php** in Ihrem Browser,  wodurch das Plugin installiert wird.  
    (Ersetzen Sie **http://mywebshop.com/** durch die URL von Ihrem Webshop.)
 
 5. Löschen Sie die Datei **cardgate_install.php** aus dem **Root-Ordner** Ihres Webshops.
