@@ -26,6 +26,7 @@
 	    'iDEAL'=>'ideal',
 	    'Klarna'=>'klarna',
 	    'PayPal'=>'paypal',
+	    'Paysafecard'=>'paysafecard',
 	    'Przelewy24'=>'przelewy24',
 	    'Sofortbanking'=>'sofortbanking',
 	    'Generic' => 'generic',
