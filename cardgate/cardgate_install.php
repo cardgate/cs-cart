@@ -20,6 +20,7 @@
 	    'Bancontact'=>'bancontact',
 	    'DirectDebit' => 'directdebit',
 	    'Banktransfer'=>'banktransfer',
+	    'Billink'=>'billink',
 	    'Bitcoin'=>'bitcoin',
 	    'Creditcard'=>'creditcard',
 	    'Giropay'=>'giropay',
