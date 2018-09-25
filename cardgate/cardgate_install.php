@@ -25,6 +25,7 @@
 	    'Creditcard'=>'creditcard',
 	    'Giropay'=>'giropay',
 	    'iDEAL'=>'ideal',
+	    'iDEALQR'=>'idealqr',
 	    'Klarna'=>'klarna',
 	    'PayPal'=>'paypal',
 	    'Paysafecard'=>'paysafecard',
