@@ -2,7 +2,7 @@
 
 function smarty_function_cardgate_banken( $params ) {
     require_once ($params['dir'] . 'cardgate/cardgate.php');
-    $cardgate = new Cardgate(0,0 );
+    $cardgate = new Cardgate(0,0,0 );
     $banken = '';
 
     $banken = $cardgate->getBankOptions();    
