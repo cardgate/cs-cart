@@ -175,7 +175,6 @@ class Cardgate
             $this->entranceCode = $this->purchaseId;
         
         try {
-            //include 'cardgate-clientlib-php/init.php';
             
             $oCardGate = new \cardgate\api\Client((int) $this->merchantId, $this->merchantKey, $data['testmode']);
             
@@ -278,8 +277,6 @@ class Cardgate
         
         try {
             
-          // require 'cardgate-clientlib-php/init.php';
-            
             $oCardGate = new \cardgate\api\Client((int) $generic_data['processor_params']['merchantid'], $generic_data['processor_params']['merchantkey'], $testMode);
             $oCardGate->setIp($_SERVER['REMOTE_ADDR']);
             
@@ -304,8 +301,6 @@ class Cardgate
     public function hashCheck($data, $hashKey, $testMode)
     {
         try {
-            
-           // require 'cardgate-clientlib-php/init.php';
             
             $oCardGate = new \cardgate\api\Client((int) $this->merchantId, $this->merchantKey, $testMode);
             $oCardGate->setIp($_SERVER['REMOTE_ADDR']);
