@@ -31,6 +31,7 @@ $payments = array(
     'Paysafecard' => 'paysafecard',
     'Przelewy24' => 'przelewy24',
     'Sofortbanking' => 'sofortbanking',
+    'SofortPay' => 'sofortpay',
     'Generic' => 'generic'
 );
 
