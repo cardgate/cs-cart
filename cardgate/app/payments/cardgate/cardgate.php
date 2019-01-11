@@ -1,5 +1,8 @@
 <?php
 
+require_once dirname( __FILE__ ) . '/cardgate-clientlib-php/src/Autoloader.php';
+cardgate\api\Autoloader::register();
+
 class Cardgate
 {
 
@@ -97,7 +100,7 @@ class Cardgate
     // version
     const pluginName = 'cs_cart';
 
-    const pluginVersion = '4.4.5';
+    const pluginVersion = '4.4.6';
 
     public function __construct($merchantid, $merchantkey, $shopid)
     {
@@ -172,9 +175,8 @@ class Cardgate
             $this->entranceCode = $this->purchaseId;
         
         try {
-            include 'cardgate-clientlib-php/init.php';
             
-            $oCardGate = new cardgate\api\Client((int) $this->merchantId, $this->merchantKey, $data['testmode']);
+            $oCardGate = new \cardgate\api\Client((int) $this->merchantId, $this->merchantKey, $data['testmode']);
             
             $oCardGate->setIp($_SERVER['REMOTE_ADDR']);
             $oCardGate->setLanguage(CART_LANGUAGE);
@@ -259,7 +261,7 @@ class Cardgate
     {
         $valid_id = db_get_field("SELECT processor_id FROM ?:payment_processors WHERE processor_script = ?s", 'cardgategeneric.php');
         if (empty($valid_id)) {
-            echo 'There are no values in the CardGate generic module. You need to set these forst in order to process transactions.';
+            echo 'There are no values in the CardGate generic module. You need to set these first in order to process transactions.';
             exit();
         }
         
@@ -275,9 +277,7 @@ class Cardgate
         
         try {
             
-            require 'cardgate-clientlib-php/init.php';
-            
-            $oCardGate = new cardgate\api\Client((int) $generic_data['processor_params']['merchantid'], $generic_data['processor_params']['merchantkey'], $testMode);
+            $oCardGate = new \cardgate\api\Client((int) $generic_data['processor_params']['merchantid'], $generic_data['processor_params']['merchantkey'], $testMode);
             $oCardGate->setIp($_SERVER['REMOTE_ADDR']);
             
             $aIssuers = $oCardGate->methods()
@@ -302,9 +302,7 @@ class Cardgate
     {
         try {
             
-            require 'cardgate-clientlib-php/init.php';
-            
-            $oCardGate = new cardgate\api\Client((int) $this->merchantId, $this->merchantKey, $testMode);
+            $oCardGate = new \cardgate\api\Client((int) $this->merchantId, $this->merchantKey, $testMode);
             $oCardGate->setIp($_SERVER['REMOTE_ADDR']);
             
             if (FALSE == $oCardGate->transactions()->verifyCallback($data, $hashKey)) {

@@ -23,6 +23,7 @@ $payments = array(
     'Billink' => 'billink',
     'Bitcoin' => 'bitcoin',
     'Creditcard' => 'creditcard',
+    'Giftcard' => 'giftcard',
     'Giropay' => 'giropay',
     'iDEAL' => 'ideal',
     'iDEALQR' => 'idealqr',
@@ -31,6 +32,7 @@ $payments = array(
     'Paysafecard' => 'paysafecard',
     'Przelewy24' => 'przelewy24',
     'Sofortbanking' => 'sofortbanking',
+    'SofortPay' => 'sofortpay',
     'Generic' => 'generic'
 );
 

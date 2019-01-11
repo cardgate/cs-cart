@@ -1,0 +1,1 @@
+<p>De instellingen van de CardGate Generic betaalmodule gelden voor deze betaalmethode.</p>
