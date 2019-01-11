@@ -23,6 +23,7 @@ $payments = array(
     'Billink' => 'billink',
     'Bitcoin' => 'bitcoin',
     'Creditcard' => 'creditcard',
+    'Giftcard' => 'giftcard',
     'Giropay' => 'giropay',
     'iDEAL' => 'ideal',
     'iDEALQR' => 'idealqr',

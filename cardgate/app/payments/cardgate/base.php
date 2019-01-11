@@ -124,7 +124,7 @@ if (defined('PAYMENT_NOTIFICATION')) {
     
     $valid_id = db_get_field("SELECT processor_id FROM ?:payment_processors WHERE processor_script = ?s", 'cardgategeneric.php');
     if (empty($valid_id)) {
-        echo 'There are no values in the CardGate generic module. You need to set these forst in order to process transactions.';
+        echo 'There are no values in the CardGate generic module. You need to set these first in order to process transactions.';
         exit();
     }
     
