@@ -30,6 +30,7 @@ $payments = array(
     'Klarna' => 'klarna',
     'PayPal' => 'paypal',
     'Paysafecard' => 'paysafecard',
+    'Paysafecash' => 'paysafecash',
     'Przelewy24' => 'przelewy24',
     'Sofortbanking' => 'sofortbanking',
     'SofortPay' => 'sofortpay',
