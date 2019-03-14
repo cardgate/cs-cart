@@ -100,7 +100,7 @@ class Cardgate
     // version
     const pluginName = 'cs_cart';
 
-    const pluginVersion = '4.4.7';
+    const pluginVersion = '4.4.8';
 
     public function __construct($merchantid, $merchantkey, $shopid)
     {
@@ -259,30 +259,52 @@ class Cardgate
 
     public function getBankOptions()
     {
-        $valid_id = db_get_field("SELECT processor_id FROM ?:payment_processors WHERE processor_script = ?s", 'cardgategeneric.php');
-        if (empty($valid_id)) {
+        $iValidId = db_get_field("SELECT processor_id FROM ?:payment_processors WHERE processor_script = ?s", 'cardgategeneric.php');
+        if (empty($iValidId)) {
             echo 'There are no values in the CardGate generic module. You need to set these first in order to process transactions.';
             exit();
         }
         
-        $pp_response = array();
-        $payment_id = db_get_field("SELECT payment_id FROM ?:payments WHERE processor_id = ?i", $valid_id);
-        $generic_data = fn_get_payment_method_data($payment_id);
+        $pp_response = [];
+        $iPaymentId = db_get_field("SELECT payment_id FROM ?:payments WHERE processor_id = ?i", $iValidId);
+        $generic_data = fn_get_payment_method_data($iPaymentId);
+        $params = $generic_data['processor_params'];
         
-        if ($generic_data['processor_params']['testmode'] == 'on') {
-            $testMode = TRUE;
+        $this->checkBankOptions($iPaymentId, $params);
+
+        $qry = sprintf("SELECT processor_params FROM ?:payments WHERE payment_id=%d",$iPaymentId);
+        $data = unserialize(db_get_field($qry));
+        $aOptions = unserialize($data['issuers']);
+
+        return $aOptions;
+    }
+    
+    private function checkBankOptions($id, $params) {
+            if (key_exists('issuerrefresh', $params)) {
+            $iIssuerRefresh = (int) $params['issuerrefresh'];
+            if ($iIssuerRefresh < time()) {
+                $this->cacheBankOptions($id, $params);
+            }
         } else {
-            $testMode = FALSE;
+            $this->cacheBankOptions($id, $params);
         }
+    }
+    
+    private function cacheBankOptions($id, $params) {
+        $iCacheTime = 24 * 60 * 60;
+        $iIssuerRefresh = time() + $iCacheTime;
+        $params['issuerrefresh'] = $iIssuerRefresh;
+        
+        $bTestMode = ($params['testmode']=='on' ? true:false);
         
         try {
-            
-            $oCardGate = new \cardgate\api\Client((int) $generic_data['processor_params']['merchantid'], $generic_data['processor_params']['merchantkey'], $testMode);
+          
+            $oCardGate = new \cardgate\api\Client((int) $params['merchantid'], $params['merchantkey'], $bTestMode);
             $oCardGate->setIp($_SERVER['REMOTE_ADDR']);
             
             $aIssuers = $oCardGate->methods()
-                ->get(cardgate\api\Method::IDEAL)
-                ->getIssuers();
+            ->get(cardgate\api\Method::IDEAL)
+            ->getIssuers();
         } catch (cardgate\api\Exception $oException_) {
             $aIssuers[0] = [
                 'id' => 0,
@@ -290,12 +312,15 @@ class Cardgate
             ];
         }
         
-        $options = array();
-        
+        $aOptions = [];
         foreach ($aIssuers as $aIssuer) {
-            $options[$aIssuer['id']] = $aIssuer['name'];
+            $aOptions[$aIssuer['id']] = $aIssuer['name'];
         }
-        return $options;
+       
+        $params['issuers'] = serialize($aOptions);
+        $s = serialize($params);
+        $qry = sprintf("UPDATE ?:payments SET processor_params='%s' WHERE payment_id=%d",$s,$id);
+        db_query($qry);
     }
 
     public function hashCheck($data, $hashKey, $testMode)
