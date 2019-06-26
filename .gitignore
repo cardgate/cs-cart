@@ -48,3 +48,6 @@
 !images/cardgate
 !var/themes_repository/basic/templates/views/orders/components/payments/cardgate_ideal.tpl
 !cardgate_install.php
+!README.md
+!README_DE.md
+!README_NL.md
