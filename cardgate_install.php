@@ -83,5 +83,5 @@ function upd($mysqli, $script, $query, $prefix) {
             return true;
         }
     }
-}
+} echo "test";
 ?>
