@@ -100,7 +100,7 @@ class Cardgate
     // version
     const pluginName = 'cs_cart';
 
-    const pluginVersion = '4.4.9';
+    const pluginVersion = '4.4.10';
 
     public function __construct($merchantid, $merchantkey, $shopid)
     {
@@ -318,9 +318,12 @@ class Cardgate
         }
        
         $params['issuers'] = serialize($aOptions);
-        $s = serialize($params);
-        $qry = sprintf("UPDATE ?:payments SET processor_params='%s' WHERE payment_id=%d",$s,$id);
-        db_query($qry);
+
+        if (array_key_exists("INGBNL2A", $aOptions)) {
+	        $s   = serialize( $params );
+	        $qry = sprintf( "UPDATE ?:payments SET processor_params='%s' WHERE payment_id=%d", $s, $id );
+	        db_query( $qry );
+        }
     }
 
     public function hashCheck($data, $hashKey, $testMode)
