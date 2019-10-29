@@ -17,13 +17,14 @@
 !app/payments/cardgateideal.php
 !app/payments/cardgateidealqr.php
 !app/payments/cardgateklarna.php
+!app/payments/cardgateonlineueberweisen.php
 !app/payments/cardgatepaypal.php
 !app/payments/cardgatepaysafecard.php
 !app/payments/cardgatepaysafecash.php
 !app/payments/cardgateprzelewy24.php
 !app/payments/cardgatesofortbanking.php
 !app/payments/cardgatesofortpay.php
-!design/backend/templates/views/dorders/components/payments/cardgate_ideal.tpl
+!design/backend/templates/views/orders/components/payments/cardgate_ideal.tpl
 !design/backend/templates/views/payments/components/cc_processors/cardgateafterpay.tpl
 !design/backend/templates/views/payments/components/cc_processors/cardgatebancontact.tpl
 !design/backend/templates/views/payments/components/cc_processors/cardgatebanktransfer.tpl
@@ -37,6 +38,7 @@
 !design/backend/templates/views/payments/components/cc_processors/cardgateideal.tpl
 !design/backend/templates/views/payments/components/cc_processors/cardgateidealqr.tpl
 !design/backend/templates/views/payments/components/cc_processors/cardgateklarna.tpl
+!design/backend/templates/views/payments/components/cc_processors/cardgateonlineueberweisen.tpl
 !design/backend/templates/views/payments/components/cc_processors/cardgatepaypal.tpl
 !design/backend/templates/views/payments/components/cc_processors/cardgatepaysafecard.tpl
 !design/backend/templates/views/payments/components/cc_processors/cardgatepaysafecash.tpl

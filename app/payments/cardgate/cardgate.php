@@ -100,7 +100,7 @@ class Cardgate
     // version
     const pluginName = 'cs_cart';
 
-    const pluginVersion = '4.4.10';
+    const pluginVersion = '4.4.11';
 
     public function __construct($merchantid, $merchantkey, $shopid)
     {
