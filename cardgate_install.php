@@ -29,6 +29,7 @@ $payments = array(
     'iDEALQR' => 'idealqr',
     'Klarna' => 'klarna',
     'PayPal' => 'paypal',
+    'OnlineÜberweisen' => 'onlineueberweisen',
     'Paysafecard' => 'paysafecard',
     'Paysafecash' => 'paysafecash',
     'Przelewy24' => 'przelewy24',
