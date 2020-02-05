@@ -2,6 +2,8 @@
 
 # CardGate module voor CS.Cart
 
+[![Build Status](https://travis-ci.org/cardgate/cs-cart.svg?branch=master)](https://travis-ci.org/cardgate/cs-cart)
+
 ## Support
 
 Deze plugin ondersteunt CS.Cart versie **4.4.x-4.9.x**
