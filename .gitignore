@@ -53,3 +53,8 @@
 !README.md
 !README_DE.md
 !README_NL.md
+!.travis.yml
+!composer.json
+!phpunit.xml.dist
+!tests/bootstrap.php
+!tests/phpunit.xml
