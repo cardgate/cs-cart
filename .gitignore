@@ -56,5 +56,6 @@
 !.travis.yml
 !composer.json
 !phpunit.xml.dist
+!tests
 !tests/bootstrap.php
 !tests/phpunit.xml
