@@ -1,0 +1,15 @@
+{
+  "name": "cardgate/cscart",
+  "type": "library",
+  "description": "CardGate payment processing module for CS-Cart",
+  "keywords": [
+    "cs-cart",
+    "cardgate",
+    "payment"
+  ],
+  "homepage": "https://www.cardgate.com",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": { "Cardgate\\cscart\\" : "" }
+  }
+}
