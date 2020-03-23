@@ -16,9 +16,9 @@ gegevens op, of neem contact op met je accountmanager.
 
 ## Installatie
 
-1. Download en unzip de meest recente [source code](https://github.com/cardgate/cs-cart/releases) op je bureaublad.
+1. Download en unzip het meest recente [cardgate.zip](https://github.com/cardgate/cs-cart/releases) bestand op je bureaublad.
 
-2. Upload de **inhoud** van de **zip bestand**  naar de **root** map van je webshop.
+2. Upload de **inhoud** van de **cardgate** map naar de **root** map van je webshop.
 
 3. Zorg ervoor dat je **cache leeg** is. Wellicht moeten de Smarty templates opnieuw worden gecompileerd voordat de template aanpassingen **zichtbaar** zijn.
    Doe dit door de parameter **ctpl** aan je admin URL toe te voegen.
