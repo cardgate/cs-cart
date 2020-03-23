@@ -15,9 +15,9 @@ Gehen zu [My CardGate](https://my.cardgate.com/) und fragen Sie Ihre Zugangsdate
 
 ## Installation
 
-1. Downloaden und entpacken Sie den aktuellsten [Source Code](https://github.com/cardgate/cs-cart/releases/) auf Ihrem Desktop.
+1. Downloaden und entpacken Sie den aktuellsten [cardgate.zip](https://github.com/cardgate/cs-cart/releases/) auf Ihrem Desktop.
 
-2. Uploaden Sie den **Inhalt** der **Zip-Datei** in den **Root-Ordner** Ihres Webshops.
+2. Uploaden Sie den **Inhalt** der **Cardgate-Ordner** in den **Root-Ordner** Ihres Webshops.
 
 3. Sorgen Sie dafür, dass der **Cache leer** ist. Eventuell müssen die Smarty Templates erneut kompiliert werden, bevor die Template-Anpassungen **sichtbar** sind.  
    Das machen Sie indem Sie den Parameter **ctpl** an Ihre admin URL hinzufügen.
