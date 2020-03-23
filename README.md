@@ -17,7 +17,7 @@ Please visit [My CardGate](https://my.cardgate.com/) and retrieve your credentia
 
 1. Download and unzip the most recent [cardgate.zip](https://github.com/cardgate/cs-cart/releases) file on your desktop.
 
-2. Upload the **contents** of the **cardgate** folder to the **root folder** of your webshop.
+2. Upload the **contents** of the **cardgate** folder to the **root** folder of your webshop.
 
 3. Open the URL **http://mywebshop.com/cardgate_install.php** in your browser, which will install the plug-in.  
    (Replace **http://mywebshop.com** with the URL of your webshop.)
