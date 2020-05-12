@@ -6,7 +6,7 @@
 
 ## Support
 
-This plugin supports CS.Cart version **4.4.x-4.9.x**
+This plugin supports CS.Cart version **4.4.x-4.11.x**
 
 ## Preparation
 
