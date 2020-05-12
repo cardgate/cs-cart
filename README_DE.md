@@ -6,7 +6,7 @@
 
 ## Support
 
-Dieses Plug-in ist geeignet für CS.Cart **4.4.x-4.9.x**
+Dieses Plug-in ist geeignet für CS.Cart **4.4.x-4.11.x**
 
 ## Vorbereitung
 
