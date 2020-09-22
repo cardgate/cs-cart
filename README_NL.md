@@ -21,7 +21,8 @@ gegevens op, of neem contact op met je accountmanager.
 2. Upload de **inhoud** van de **cardgate** map naar de **root** map van je webshop.
 
 3. Zorg ervoor dat je **cache leeg** is. Wellicht moeten de Smarty templates opnieuw worden gecompileerd voordat de template aanpassingen **zichtbaar** zijn.
-   Doe dit door de parameter **ctpl** aan je admin URL toe te voegen.
+
+4. Doe dit door de parameter **ctpl** aan je admin URL toe te voegen.
 
 ## Configuratie
 

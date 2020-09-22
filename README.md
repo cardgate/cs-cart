@@ -20,7 +20,8 @@ Please visit [My CardGate](https://my.cardgate.com/) and retrieve your credentia
 2. Upload the **contents** of the **cardgate** folder to the **root** folder of your webshop.
 
 3. **Clear your cache.** Perhaps the Smarty templates need to be recompiled before changes to the templates are **visible.**
-   You can achieve this bij adding the parameter **ctpl** to your admin URL.
+
+4. You can achieve this by adding the parameter **ctpl** to your admin URL.
 
 ## Configuration
 
