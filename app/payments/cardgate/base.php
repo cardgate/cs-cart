@@ -1,5 +1,6 @@
 <?php
 
+use Tygh\Settings;
 /*
  * *************************************************************************
  * *
@@ -17,9 +18,8 @@ if (! defined('AREA')) {
 include 'cardgate.php';
 
 if (defined('PAYMENT_NOTIFICATION')) {
-    
+
     $order_id = $_REQUEST['order_id'];
-    
     
     if ($mode == 'return') {
         if (fn_check_payment_script($filename . '.php', $order_id)) {
@@ -32,16 +32,7 @@ if (defined('PAYMENT_NOTIFICATION')) {
             echo 'Order already Success';
             exit();
         }
-        
-        $payment_id = db_get_field("SELECT ?:payments.payment_id FROM ?:payments INNER JOIN ?:payment_processors ON ?:payments.processor_id = ?:payment_processors.processor_id WHERE ?:payment_processors.processor_script = ?s", 'cardgategeneric.php');
-        if (empty($payment_id)) {
-            echo 'There are no values in the CardGate generic module. You need to set these forst in order to process transactions.';
-            exit();
-        }
-        
-        //$payment_id = db_get_field("SELECT payment_id FROM ?:payments WHERE processor_id = ?i", $valid_id);
-        $generic_data = fn_get_payment_method_data($payment_id);
-        
+	    $cg_settings = Settings::instance()->getValues('cardgate', 'ADDON');
         $pp_response = array();
         $payment_id = db_get_field("SELECT payment_id FROM ?:orders WHERE order_id = ?i", $order_id);
         $processor_data = fn_get_payment_method_data($payment_id);
@@ -58,12 +49,12 @@ if (defined('PAYMENT_NOTIFICATION')) {
             exit();
         }
         
-        $cardgate = new Cardgate($generic_data['processor_params']['merchantid'], $generic_data['processor_params']['merchantkey'], $generic_data['processor_params']['shopid']);
+        $cardgate = new Cardgate($cg_settings['general']['merchant_id'], $cg_settings['general']['api_key'], $cg_settings['general']['site_id']);
         $trxid = $_REQUEST['transaction'];
-        $testMode = ($generic_data['processor_params']['testmode'] == 'on' ? TRUE : FALSE);
-        $hashKey = $generic_data['processor_params']['hashkey'];
+        $testMode = ($cg_settings['general']['mode'] == 'test' ? TRUE : FALSE);
+        $hashKey = $cg_settings['general']['hash_key'];
         
-        if (!$cardgate->hashCheck($_REQUEST, $generic_data['processor_params']['hashkey'], $testMode)) {
+        if (!$cardgate->hashCheck($_REQUEST, $cg_settings['general']['hash_key'], $testMode)) {
             exit('HashCheck failed.');
         }
         
@@ -73,24 +64,24 @@ if (defined('PAYMENT_NOTIFICATION')) {
         
         if ($code >= 0 && $code <=100) {
             $sReturnStatus = 'Open';
-            $st = $generic_data['processor_params']['statuspending'];
+            $st = $cg_settings['general']['statuspending'];
         }
         if ($code >= '200' && $code < '300') {
             $sReturnStatus = 'Completed';
-            $st = $generic_data['processor_params']['statussuccess'];
+            $st = $cg_settings['general']['statussuccess'];
         }
         if ($code >= '300' && $code < '400') {
             $sReturnStatus = 'Failure';
-            $st = $generic_data['processor_params']['statusfailed'];
+            $st = $cg_settings['general']['statusfailed'];
             
             if ($code == '309') {
                 $sReturnStatus = 'Canceled';
-                $st = $generic_data['processor_params']['statuscanceled'];
+                $st = $cg_settings['general']['statuscanceled'];
             }
         }
         if ($code >= '700' && $code < '800') {
             $sReturnStatus = 'Pending';
-            $st = $generic_data['processor_params']['statuspending'];
+            $st = $cg_settings['general']['statuspending'];
         }
         
         $pp_response['order_status'] = $st;
@@ -121,24 +112,23 @@ if (defined('PAYMENT_NOTIFICATION')) {
         exit();
     }
 } else {
-    
-    $valid_id = db_get_field("SELECT processor_id FROM ?:payment_processors WHERE processor_script = ?s", 'cardgategeneric.php');
-    if (empty($valid_id)) {
-        echo 'There are no values in the CardGate generic module. You need to set these first in order to process transactions.';
+
+	$cg_settings = Settings::instance()->getValues('cardgate', 'ADDON');
+
+    if (empty($cg_settings)) {
+        echo 'There are no settings in the CardGate Add on. You need to set these first in order to process transactions.';
         exit();
     }
-    
+
     $pp_response = array();
-    $payment_id = db_get_field("SELECT payment_id FROM ?:payments WHERE processor_id = ?i", $valid_id);
-    $generic_data = fn_get_payment_method_data($payment_id);
-    
+
     echo '<center><img src="images/cardgate/' . $filename . '.png" alt="payment logo" /> </center>';
     
     $arg = array();
-    
-    $currency = $generic_data['processor_params']['currency'];
+
+    $currency = $cg_settings['general']['currency'];
     $amount = round(fn_format_price($order_info['total'], $currency) * 100);
-    
+
     // wanneer ideal is geselecteerd
     // actie: controleren of er een bankkeuze is gemaakt
     // uitvoer: bij geen bankkeuze wordt er een foutmelding gegeven en een redirect geplaatst
@@ -286,7 +276,7 @@ if (defined('PAYMENT_NOTIFICATION')) {
                 $items[$nr]['vat_amount'] = round($taxamount * 100.0, 0);
             }
         }
-        
+
         // producten
         // payment fee toevoegen aan de producten
         if (isset($order_info['payment_surcharge']) && $order_info['payment_surcharge'] > 0) {
@@ -350,7 +340,7 @@ if (defined('PAYMENT_NOTIFICATION')) {
         $returnurl = fn_url("payment_notification.return?payment=" . $filename . "&order_id=" . $order_id, AREA, 'current');
         
         // kijken of de testmodes geactiveerd moet worden
-        if ($generic_data['processor_params']['testmode'] == 'on') {
+        if ($cg_settings['general']['mode'] == 'test') {
             $arg['testmode'] = TRUE;
         } else {
             $arg['testmode'] = FALSE;
@@ -361,7 +351,7 @@ if (defined('PAYMENT_NOTIFICATION')) {
         }
 
         // class cardgate inladen en ontbrekende attributen inladen
-        $cardgate = new Cardgate($generic_data['processor_params']['merchantid'], $generic_data['processor_params']['merchantkey'], $generic_data['processor_params']['shopid']);
+        $cardgate = new Cardgate($cg_settings['general']['merchant_id'], $cg_settings['general']['api_key'], $cg_settings['general']['site_id']);
         $cardgate->amount = $amount;
         $cardgate->payment = $paymentcode;
         $cardgate->purchaseId = $order_id;

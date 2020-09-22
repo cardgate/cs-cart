@@ -23,42 +23,39 @@ gegevens op, of neem contact op met je accountmanager.
 3. Zorg ervoor dat je **cache leeg** is. Wellicht moeten de Smarty templates opnieuw worden gecompileerd voordat de template aanpassingen **zichtbaar** zijn.
    Doe dit door de parameter **ctpl** aan je admin URL toe te voegen.
 
-4. Open the URL **http://mywebshop.com/cardgate_install.php** in je browser, zodat de plug-in installeert.  
-   (Vervang **http://mywebshop.com** met de URL van je webshop.)
-
-5. Verwijder het bestand **cardgate_install.php** uit de **root map** van je webshop.
-
 ## Configuratie
 
 1. Login op het **admin** gedeelte van je webshop.
 
-2. Kies voor **Betaalmethoden** in het **Administratie** menu.
+2. Ga naar **Plug-ins** en kies **Plug-ins beheren**.
 
-3. Klik op de **Betaalmethode toevoegen** knop.
+3. Gebruik het Zoek venster om de CardGate plug-in te vinden, en klik op **Installeer**.
 
-4. Eerst moet de **CardGate Generic** betaalmethode ingesteld worden. In deze betaalmethode zitten de instellingen voor alle CardGate betaalmethoden.
+4. Klik op de **Instellingen** van de geïnstalleerde plug-in.
 
-5. Vul de naam in van de Algemene betaalmethode en kies de **CardGate Generic** betaalmethode uit het **Verwerkingseenheid** menu.
+5. Stel de Mode in op **Test** voor een test transactie.
 
-6. Zorg ervoor dat deze betaalmethode **niet** op **Actief** staat, zodat hij niet zichtbaar is in de checkout.
+6. Vul de **site ID** en de **hash key** in, deze kun je vinden bij **Sites** op [Mijn CardGate](https://my.cardgate.com/).
 
-7. Kies dan voor de **Configureren** tab.
+7. Vul de **merchant ID** en de **API key** in die je van CardGate hebt ontvangen.
 
-8. Vul de **site ID** en de **hash key** in, deze kun je vinden bij **Sites** op [Mijn CardGate](https://my.cardgate.com/).
+8. Klik op **Opslaan**.
 
-9. Vul de **merchant ID** en de **API key** in die je van CardGate hebt ontvangen.
+9. **Let Wel:** Deze instellingen gelden voor **alle** CardGate betaalmethoden. 
 
-10. Stel de Testmode in op **Test** voor een test transactie.
+10. Maak nu de **specifieke** CardGate betaalmethoden aan die je wilt gebruiken in je winkel.
 
-11. Vul de overige gegevens in en klik op de **Save** knop.
+11. Kies **Betaalmethode** in het **Administratie** menu.
 
-12. **Let Wel:** Deze instellingen gelden voor **alle** CardGate betaalmethoden.  
- 
-13. Maak nu op dezelfde manier de **specifieke** CardGate betaalmethoden aan die je wilt gebruiken in je winkel.
+12. Klik op de **Betaalmethode toevoegen** knop.
 
-14. De instellingen van de **Algemeen** tab gelden per **specifieke** betaalmethode.
+13. Vul de naam in van de betaalmethode en kies de juiste **CardGate** betaalmethode uit het **Verwerkingseenheid** menu.
 
-15. Zorg ervoor dat je **na het testen** omschakelt van **Test Mode** naar **Live mode** in de **CardGate Generic** betaalmethode en sla het op (**Save**).
+14. Vul de overige gegevens in en klik op de **Opslaan** knop.
+
+15. De instellingen van de **Algemeen** tab gelden per **specifieke** betaalmethode.
+
+16. Zorg ervoor dat je **na het testen** omschakelt van **Test Mode** naar **Live mode** in de **CardGate** instelligen en sla het op (**Save**).
 
 ## Vereisten
 

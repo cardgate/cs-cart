@@ -16,7 +16,7 @@ class Cardgate
 
     private $merchantKey;
 
-    private $shopId;
+    private $siteId;
     // Transaction data
     public $payment;
     // ideal=iDEAL; sofort=DIRECTebanking; mistercash=MisterCash; ...
@@ -100,13 +100,13 @@ class Cardgate
     // version
     const pluginName = 'cs_cart';
 
-    const pluginVersion = '4.4.11';
+    const pluginVersion = '4.5.0';
 
-    public function __construct($merchantid, $merchantkey, $shopid)
+    public function __construct($merchant_id, $api_key, $site_id)
     {
-        $this->merchantId = $merchantid;
-        $this->merchantKey = $merchantkey;
-        $this->shopId = $shopid;
+        $this->merchantId = $merchant_id;
+        $this->merchantKey = $api_key;
+        $this->siteId = $site_id;
     }
 
     private function error()
@@ -185,7 +185,7 @@ class Cardgate
             $oCardGate->version()->setPluginName(CARDGATE::pluginName);
             $oCardGate->version()->setPluginVersion(CARDGATE::pluginVersion);
             
-            $iSiteId = (int) $this->shopId;
+            $iSiteId = (int) $this->siteId;
             $amount = (int) $this->amount;
             $currency = $data['currency'];
             
@@ -259,47 +259,36 @@ class Cardgate
 
     public function getBankOptions()
     {
-        $iValidId = db_get_field("SELECT processor_id FROM ?:payment_processors WHERE processor_script = ?s", 'cardgategeneric.php');
-        if (empty($iValidId)) {
-            echo 'There are no values in the CardGate generic module. You need to set these first in order to process transactions.';
-            exit();
-        }
-        
-        $pp_response = [];
-        $iPaymentId = db_get_field("SELECT payment_id FROM ?:payments WHERE processor_id = ?i", $iValidId);
-        $generic_data = fn_get_payment_method_data($iPaymentId);
-        $params = $generic_data['processor_params'];
-        
-        $this->checkBankOptions($iPaymentId, $params);
+	    $params =fn_get_cardgate_settings();
+        $this->checkBankOptions($params);
 
-        $qry = sprintf("SELECT processor_params FROM ?:payments WHERE payment_id=%d",$iPaymentId);
-        $data = unserialize(db_get_field($qry));
-        $aOptions = unserialize($data['issuers']);
+	    $params =fn_get_cardgate_settings();
+        $aOptions = unserialize($params['cg_issuers']);
 
         return $aOptions;
     }
     
-    private function checkBankOptions($id, $params) {
-            if (key_exists('issuerrefresh', $params)) {
+    private function checkBankOptions($params) {
+	    if (key_exists('issuerrefresh', $params)) {
             $iIssuerRefresh = (int) $params['issuerrefresh'];
             if ($iIssuerRefresh < time()) {
-                $this->cacheBankOptions($id, $params);
+                $this->cacheBankOptions($params);
             }
         } else {
-            $this->cacheBankOptions($id, $params);
+            $this->cacheBankOptions($params);
         }
     }
     
-    private function cacheBankOptions($id, $params) {
+    private function cacheBankOptions($params) {
         $iCacheTime = 24 * 60 * 60;
         $iIssuerRefresh = time() + $iCacheTime;
         $params['issuerrefresh'] = $iIssuerRefresh;
         
-        $bTestMode = ($params['testmode']=='on' ? true:false);
+        $bTestMode = ($params['mode']=='test' ? true:false);
         
         try {
           
-            $oCardGate = new \cardgate\api\Client((int) $params['merchantid'], $params['merchantkey'], $bTestMode);
+            $oCardGate = new \cardgate\api\Client((int) $params['merchant_id'], $params['api_key'], $bTestMode);
             $oCardGate->setIp($_SERVER['REMOTE_ADDR']);
             
             $aIssuers = $oCardGate->methods()
@@ -317,12 +306,9 @@ class Cardgate
             $aOptions[$aIssuer['id']] = $aIssuer['name'];
         }
        
-        $params['issuers'] = serialize($aOptions);
-
+        $params['cg_issuers'] = serialize($aOptions);
         if (array_key_exists("INGBNL2A", $aOptions)) {
-	        $s   = serialize( $params );
-	        $qry = sprintf( "UPDATE ?:payments SET processor_params='%s' WHERE payment_id=%d", $s, $id );
-	        db_query( $qry );
+	        fn_update_cardgate_settings($params);
         }
     }
 

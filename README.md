@@ -19,46 +19,42 @@ Please visit [My CardGate](https://my.cardgate.com/) and retrieve your credentia
 
 2. Upload the **contents** of the **cardgate** folder to the **root** folder of your webshop.
 
-3. Open the URL **http://mywebshop.com/cardgate_install.php** in your browser, which will install the plug-in.  
-   (Replace **http://mywebshop.com** with the URL of your webshop.)
-
-4. Delete the file **cardgate_install.php** from the **root folder** of your webshop.
-
-5. **Clear your cache.** Perhaps the Smarty templates need to be recompiled before changes to the templates are **visible.**
-
-6. You can achieve this bij adding the parameter **ctpl** to your admin URL.
+3. **Clear your cache.** Perhaps the Smarty templates need to be recompiled before changes to the templates are **visible.**
+   You can achieve this bij adding the parameter **ctpl** to your admin URL.
 
 ## Configuration
 
 1. Login to the **admin** of your webshop.
 
-2. Choose **Payment methods** in the **Administration** menu.
+2. Go to **Add-ons**, and choose **Manage add-ons**.
 
-3. Click on the **Add payment** button. 
+3. Use the Search Box to find the CardGate add-on and click **Install**.
 
-4. First the **CardGate Generic** payment method needs to be set. This payment method contains the configuration settings for all CardGate payment methods.
+4. Click on **Settings** of the installed add-on.
 
-5. Fill in the name of the generic payment method and choose the **CardGate Generic** payment method from the **Processor** menu.
+5. Set the Mode to **Test** for a test transaction.
 
-6. Make sure this payment method is **not Active** so that it won't be visible in the checkout.
+6. Enter the **site ID**, and **hash key** which you can find at **Sites** on [My CardGate](https://my.cardgate.com/).
 
-7. Choose the **Configure** tab.
+7. Enter the **merchant ID** and the **API key** which you have received from CardGate.
 
-8. Enter the **site ID**, and **hash key** which you can find at **Sites** on [My CardGate](https://my.cardgate.com/).
+8. Click on **Save**.
 
-9. Enter the **merchant ID** and the **API key** which you have received from CardGate.
+9. **N.B.** These settings apply to **all** CardGate payment methods.
 
-10. Set the testmode to **Test** for a test transaction.
+10. Next, create the **specific** CardGate payment methods that you want to use in your shop.
 
-11. Fill in the other details and click on the **Save** button.
+11. Choose **Payment methods** in the **Administration** menu.
 
-12. **N.B.** These settings apply to **all** CardGate payment methods.  
+12. Click on the **Add payment** button. 
+
+13. Fill in the name of the payment method and choose the appropriate **CardGate** payment method from the **Processor** menu.
+
+14. Fill in the other details and click on the **Save** button.  
  
-13. In the same way, create the **specific** CardGate payment methods that you want to use in your shop.
+15. The settings of the **General** tab are applicable for each **specific** payment method.
 
-14. The settings of the **General** tab are applicable for each **specific** payment method.
-
-15. Make sure when you are finished testing that you switch from **Test Mode** to **Live Mode** in the **CardGate Generic** payment methodfor and save it (**Save**).
+16. Make sure when you are finished testing that you switch from **Test Mode** to **Live Mode** in the **CardGate** settings and save it (**Save**).
 
 ## Requirements
 
