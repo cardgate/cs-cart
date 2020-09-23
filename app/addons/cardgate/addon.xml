@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<addon scheme="3.0" edition_type="ROOT,ULT:VENDOR">
+    <id>cardgate</id>
+    <version>4.5.0</version>
+    <default_language>en</default_language>
+    <priority>100</priority>
+    <status>active</status>
+    <name>CardGate</name>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+
+    <settings edition_type="ROOT,ULT:VENDOR">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="mode">
+                        <type>selectbox</type>
+                        <default_value>live</default_value>
+                        <variants>
+                            <item id="test"></item>
+                            <item id="live"></item>
+                        </variants>
+                    </item>
+                    <item id="site_id">
+                        <type>input</type>
+                    </item>
+                    <item id="hash_key">
+                        <type>input</type>
+                    </item>
+                    <item id="merchant_id">
+                        <type>input</type>
+                    </item>
+                    <item id="api_key">
+                        <type>input</type>
+                    </item>
+                    <item id="currency">
+                        <type>selectbox</type>
+                        <default_value>EUR</default_value>
+                        <variants>
+                            <item id="USD"></item>
+                            <item id="EUR"></item>
+                            <item id="GBP"></item>
+                        </variants>
+                    </item>
+                    <item id="statuspending">
+                        <type>selectbox</type>
+                        <default_value>Y</default_value>
+                        <variants>
+                            <item id="P"></item>
+                            <item id="C"></item>
+                            <item id="O"></item>
+                            <item id="F"></item>
+                            <item id="D"></item>
+                            <item id="I"></item>
+                            <item id="Y"></item>
+                        </variants>
+                    </item>
+                    <item id="statussuccess">
+                        <type>selectbox</type>
+                        <default_value>P</default_value>
+                        <variants>
+                            <item id="P"></item>
+                            <item id="C"></item>
+                            <item id="O"></item>
+                            <item id="F"></item>
+                            <item id="D"></item>
+                            <item id="I"></item>
+                            <item id="Y"></item>
+                        </variants>
+                    </item>
+                    <item id="statusfailed">
+                        <type>selectbox</type>
+                        <default_value>F</default_value>
+                        <variants>
+                            <item id="P"></item>
+                            <item id="C"></item>
+                            <item id="O"></item>
+                            <item id="F"></item>
+                            <item id="D"></item>
+                            <item id="I"></item>
+                            <item id="Y"></item>
+                        </variants>
+                    </item>
+                    <item id="statuscanceled">
+                        <type>selectbox</type>
+                        <default_value>I</default_value>
+                        <variants>
+                            <item id="P"></item>
+                            <item id="C"></item>
+                            <item id="O"></item>
+                            <item id="F"></item>
+                            <item id="D"></item>
+                            <item id="I"></item>
+                            <item id="Y"></item>
+                        </variants>
+                    </item>
+                    <item id="cg_issuers">
+                        <type>hidden</type>
+                        <default_value></default_value>
+                    </item>
+                </items>
+            </section>
+        </sections>
+    </settings>
+    <functions>
+        <item for="install">fn_cardgate_install_payment_processors</item>
+        <item for="uninstall">fn_cardgate_delete_payment_processors</item>
+    </functions>
+</addon>

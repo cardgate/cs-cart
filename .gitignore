@@ -3,6 +3,12 @@
 !app/addons/twigmo/schemas/api/payments/cardgate_ideal.php
 !app/functions/smarty_plugins/function.cardgate_banken.php
 !app/functions/smarty_plugins/function.cardgatestatus.php
+!app/addons/cardgate
+!app/addons/cardgate/controllers
+!app/addons/cardgate/controllers/backend
+!app/addons/cardgate/controllers/backend/addons.pre.php
+!app/addons/cardgate/controllersaddon.xml
+!app/addons/cardgate/controllers/func.php
 !app/payments/cardgate
 !app/payments/cardgateafterpay.php
 !app/payments/cardgatebancontact.php

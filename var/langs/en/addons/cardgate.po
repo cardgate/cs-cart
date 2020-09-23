@@ -1,0 +1,189 @@
+msgid ""
+msgstr "Project-Id-Version: tygh\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: English\n"
+"Language: en_US"
+
+msgctxt "Addons::name::cardgate"
+msgid "CardGate payments"
+msgstr "CardGate payments"
+
+msgctxt "Addons::description::cardgate"
+msgid "Lets you accept payments via CardGate."
+msgstr "Lets you accept payments via CardGate."
+
+msgctxt "SettingsOptions::cardgate::site_id"
+msgid "Site ID"
+msgstr "Site ID"
+
+msgctxt "SettingsOptions::cardgate::hash_key"
+msgid "Hash Key"
+msgstr "Hash Key"
+
+msgctxt "SettingsOptions::cardgate::merchant_id"
+msgid "Merchant ID"
+msgstr "Merchant ID"
+
+msgctxt "SettingsOptions::cardgate::api_key"
+msgid "API Key"
+msgstr "API Key"
+
+msgctxt "SettingsOptions::cardgate::mode"
+msgid "Mode"
+msgstr "Mode"
+
+msgctxt "SettingsVariants::cardgate::mode::live"
+msgid "Live"
+msgstr "Live"
+
+msgctxt "SettingsVariants::cardgate::mode::test"
+msgid "Test"
+msgstr "Test"
+
+msgctxt "SettingsOptions::cardgate::currency"
+msgid "Currency"
+msgstr "Currency"
+
+msgctxt "SettingsVariants::cardgate::currency::USD"
+msgid "US Dollars"
+msgstr "US Dollars"
+
+msgctxt "SettingsVariants::cardgate::currency::EUR"
+msgid "Euro"
+msgstr "Euro"
+
+msgctxt "SettingsVariants::cardgate::currency::GBP"
+msgid "GB Pound"
+msgstr "GB Pound"
+
+msgctxt "SettingsOptions::cardgate::statuspending"
+msgid "Status Pending"
+msgstr "Status Pending"
+
+msgctxt "SettingsVariants::cardgate::statuspending::P"
+msgid "Paid"
+msgstr "Paid"
+
+msgctxt "SettingsVariants::cardgate::statuspending::C"
+msgid "Complete"
+msgstr "Complete"
+
+msgctxt "SettingsVariants::cardgate::statuspending::O"
+msgid "Open"
+msgstr "Open"
+
+msgctxt "SettingsVariants::cardgate::statuspending::F"
+msgid "Failed"
+msgstr "Failed"
+
+msgctxt "SettingsVariants::cardgate::statuspending::D"
+msgid "Declined"
+msgstr "Declined"
+
+msgctxt "SettingsVariants::cardgate::statuspending::I"
+msgid "Canceled"
+msgstr "Canceled"
+
+msgctxt "SettingsVariants::cardgate::statuspending::Y"
+msgid "Pending"
+msgstr "Pending"
+
+msgctxt "SettingsOptions::cardgate::statussuccess"
+msgid "Status Success"
+msgstr "Status Success"
+
+msgctxt "SettingsVariants::cardgate::statussuccess::P"
+msgid "Paid"
+msgstr "Paid"
+
+msgctxt "SettingsVariants::cardgate::statussuccess::C"
+msgid "Complete"
+msgstr "Complete"
+
+msgctxt "SettingsVariants::cardgate::statussuccess::O"
+msgid "Open"
+msgstr "Open"
+
+msgctxt "SettingsVariants::cardgate::statussuccess::F"
+msgid "Failed"
+msgstr "Failed"
+
+msgctxt "SettingsVariants::cardgate::statussuccess::D"
+msgid "Declined"
+msgstr "Declined"
+
+msgctxt "SettingsVariants::cardgate::statussuccess::I"
+msgid "Canceled"
+msgstr "Canceled"
+
+msgctxt "SettingsVariants::cardgate::statussuccess::Y"
+msgid "Pending"
+msgstr "Pending"
+
+msgctxt "SettingsOptions::cardgate::statusfailed"
+msgid "Status Failed"
+msgstr "Status Failed"
+
+msgctxt "SettingsVariants::cardgate::statusfailed::P"
+msgid "Paid"
+msgstr "Paid"
+
+msgctxt "SettingsVariants::cardgate::statusfailed::C"
+msgid "Complete"
+msgstr "Complete"
+
+msgctxt "SettingsVariants::cardgate::statusfailed::O"
+msgid "Open"
+msgstr "Open"
+
+msgctxt "SettingsVariants::cardgate::statusfailed::F"
+msgid "Failed"
+msgstr "Failed"
+
+msgctxt "SettingsVariants::cardgate::statusfailed::D"
+msgid "Declined"
+msgstr "Declined"
+
+msgctxt "SettingsVariants::cardgate::statusfailed::I"
+msgid "Canceled"
+msgstr "Canceled"
+
+msgctxt "SettingsVariants::cardgate::statusfailed::Y"
+msgid "Pending"
+msgstr "Pending"
+
+msgctxt "SettingsOptions::cardgate::statuscanceled"
+msgid "Status Canceled"
+msgstr "Status Canceled"
+
+msgctxt "SettingsVariants::cardgate::statuscanceled::P"
+msgid "Paid"
+msgstr "Paid"
+
+msgctxt "SettingsVariants::cardgate::statuscanceled::C"
+msgid "Complete"
+msgstr "Complete"
+
+msgctxt "SettingsVariants::cardgate::statuscanceled::O"
+msgid "Open"
+msgstr "Open"
+
+msgctxt "SettingsVariants::cardgate::statuscanceled::F"
+msgid "Failed"
+msgstr "Failed"
+
+msgctxt "SettingsVariants::cardgate::statuscanceled::D"
+msgid "Declined"
+msgstr "Declined"
+
+msgctxt "SettingsVariants::cardgate::statuscanceled::I"
+msgid "Canceled"
+msgstr "Canceled"
+
+msgctxt "SettingsVariants::cardgate::statuscanceled::Y"
+msgid "Pending"
+msgstr "Pending"
+
+msgctxt "Languages::text_cardgate_settings"
+msgid "The settings of the CardGate Add on apply for this payment method."
+msgstr "The settings of the CardGate Add on apply for this payment method."
