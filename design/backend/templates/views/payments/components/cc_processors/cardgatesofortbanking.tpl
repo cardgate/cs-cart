@@ -1,1 +1,1 @@
-<p>De instellingen van de CardGate Generic betaalmodule gelden voor deze betaalmethode.</p>
+<p>{__("text_cardgate_settings")}</p>
