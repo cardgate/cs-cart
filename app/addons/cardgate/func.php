@@ -23,7 +23,8 @@ function fn_cardgate_install_payment_processors(){
 		'Paysafecash' => 'paysafecash',
 		'Przelewy24' => 'przelewy24',
 		'Sofortbanking' => 'sofortbanking',
-		'SofortPay' => 'sofortpay'
+		'SofortPay' => 'sofortpay',
+		'SprayPay' => 'spraypay'
 	);
 
 	foreach ($payments as $naam => $paymentcode) {
