@@ -104,7 +104,7 @@ if (defined('PAYMENT_NOTIFICATION')) {
                 break;
             case 'Pending':
                 $pp_response['reason_text'] = 'Transaction is Pending';
-                fn_change_order_status($order_id, $pp_response['order_status'], '', false);
+                fn_change_order_status($order_id, $pp_response['order_status'], '', true);
                 break;
         }
         
@@ -122,7 +122,7 @@ if (defined('PAYMENT_NOTIFICATION')) {
 
     $pp_response = array();
 
-    echo '<center><img src="images/cardgate/' . $filename . '.png" alt="payment logo" /> </center>';
+    echo '<div style="text-align: center;"><img src="images/cardgate/' . $filename . '.png" alt="payment logo" /> </div>';
     
     $arg = array();
 
