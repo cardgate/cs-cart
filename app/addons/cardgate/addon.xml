@@ -97,6 +97,14 @@
                         <type>hidden</type>
                         <default_value></default_value>
                     </item>
+                    <item id="issuer_refresh">
+                        <type>hidden</type>
+                        <default_value></default_value>
+                    </item>
+                    <item id="last_mode">
+                        <type>hidden</type>
+                        <default_value></default_value>
+                    </item>
                 </items>
             </section>
         </sections>

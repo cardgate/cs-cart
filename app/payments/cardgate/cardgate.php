@@ -269,9 +269,9 @@ class Cardgate
     }
     
     private function checkBankOptions($params) {
-	    if (key_exists('issuerrefresh', $params)) {
-            $iIssuerRefresh = (int) $params['issuerrefresh'];
-            if ($iIssuerRefresh < time()) {
+	    if (key_exists('issuer_refresh', $params)) {
+            $iIssuerRefresh = (int) $params['issuer_refresh'];
+            if ($iIssuerRefresh < time() || ($params['mode'] != $params['last_mode'])) {
                 $this->cacheBankOptions($params);
             }
         } else {
@@ -282,7 +282,8 @@ class Cardgate
     private function cacheBankOptions($params) {
         $iCacheTime = 24 * 60 * 60;
         $iIssuerRefresh = time() + $iCacheTime;
-        $params['issuerrefresh'] = $iIssuerRefresh;
+        $params['issuer_refresh'] = $iIssuerRefresh;
+        $params['last_mode'] = $params['mode'];
         
         $bTestMode = ($params['mode']=='test' ? true:false);
         

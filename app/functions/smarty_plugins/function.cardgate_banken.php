@@ -1,9 +1,10 @@
 <?php
+use Tygh\Settings;
+function smarty_function_cardgate_banken() {
 
-function smarty_function_cardgate_banken( $params ) {
-
-    require_once ($params['dir'] . 'cardgate/cardgate.php');
-    $cardgate = new Cardgate(0,0,0 );
+    require_once (__DIR__.'/../../payments/cardgate/cardgate.php');
+    $cg_settings = Settings::instance()->getValues('cardgate', 'ADDON');
+    $cardgate = new Cardgate($cg_settings['general']['merchant_id'], $cg_settings['general']['api_key'], $cg_settings['general']['site_id']);
     $banken = '';
     $banken = $cardgate->getBankOptions();
 

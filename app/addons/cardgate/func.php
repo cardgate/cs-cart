@@ -58,7 +58,7 @@ function fn_update_cardgate_settings($settings)
 	}
 
 	foreach ($settings as $setting_name => $setting_value) {
-		Settings::instance()->updateValue($setting_name, $setting_value);
+		Settings::instance()->updateValue($setting_name, $setting_value, 'cardgate', true);
 	}
 }
 
