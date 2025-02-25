@@ -13,7 +13,6 @@ function fn_cardgate_install_payment_processors(){
 		'Bitcoin' => 'bitcoin',
 		'Creditcard' => 'creditcard',
 		'Giftcard' => 'giftcard',
-		'Giropay' => 'giropay',
 		'iDEAL' => 'ideal',
 		'iDEALQR' => 'idealqr',
 		'Klarna' => 'klarna',
@@ -28,11 +27,7 @@ function fn_cardgate_install_payment_processors(){
 	);
 
 	foreach ($payments as $naam => $paymentcode) {
-		if ($paymentcode == 'ideal') {
-			$template = 'cardgate_ideal.tpl';
-		} else {
-			$template = 'cc_outside.tpl';
-		}
+        $template = 'cc_outside.tpl';
 		$query = "?:payment_processors SET processor = 'Cardgate " . $naam . "', `processor_script` = 'cardgate" . $paymentcode . ".php', `admin_template` = 'cardgate" . $paymentcode . ".tpl', `processor_template` = 'views/orders/components/payments/" . $template . "', `callback` = 'N', `type` = 'P', `addon` = 'cardgate' ";
 
 		$result = db_get_array("SELECT * FROM ?:payment_processors WHERE processor_script = 'cardgate" . $paymentcode . ".php'");

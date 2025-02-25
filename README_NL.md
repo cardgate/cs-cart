@@ -6,7 +6,7 @@
 
 ## Support
 
-Deze plugin ondersteunt CS.Cart versie **4.4.x-4.15.x**
+Deze plugin ondersteunt CS.Cart versie **4.4.x-4.18.x**
 
 ## Voorbereiding
 
@@ -28,11 +28,11 @@ gegevens op, of neem contact op met je accountmanager.
 
 1. Login op het **admin** gedeelte van je webshop.
 
-2. Ga naar **Plug-ins** en kies **Plug-ins beheren**.
+2. Ga naar **Add ons, Downloaded add ons** en kies de **All Tab**.
 
-3. Gebruik het Zoek venster om de CardGate plug-in te vinden, en klik op **Installeer**.
+3. Gebruik het Zoek venster om de CardGate plug-in te vinden, en klik op **Activeer**.
 
-4. Klik op de **Instellingen** van de geïnstalleerde plug-in.
+4. Klik op het **CA logo** van de geïnstalleerde plug-in, en kies **Settings**.
 
 5. Stel de Mode in op **Test** voor een test transactie.
 
@@ -46,7 +46,7 @@ gegevens op, of neem contact op met je accountmanager.
 
 10. Maak nu de **specifieke** CardGate betaalmethoden aan die je wilt gebruiken in je winkel.
 
-11. Kies **Betaalmethode** in het **Administratie** menu.
+11. Kies links onderaan **Instellingen, Betaalmethoden** in het **Administratie** menu.
 
 12. Klik op de **Betaalmethode toevoegen** knop.
 

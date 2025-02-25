@@ -129,109 +129,97 @@ if (defined('PAYMENT_NOTIFICATION')) {
     $currency = $cg_settings['general']['currency'];
     $amount = round(fn_format_price($order_info['total'], $currency) * 100);
 
-    // wanneer ideal is geselecteerd
-    // actie: controleren of er een bankkeuze is gemaakt
-    // uitvoer: bij geen bankkeuze wordt er een foutmelding gegeven en een redirect geplaatst
-    if ($paymentcode == 'ideal' && (! isset($order_info['payment_info']['issuerid']) || $order_info['payment_info']['issuerid'] == '')) {
-        
-        fn_set_notification('E', fn_get_lang_var('warning'), 'Kies een bank', false, 'no_bank');
-        require_once (dirname(dirname(dirname(__FILE__))) . '/Tygh/Registry.php');
-        $registry = new Tygh\Registry();
-        fn_redirect($registry::get('config.current_location') . "/" . $index_script . "?dispatch=checkout.checkout&order_id=" . $order_id, true);
-        exit();
+
+    // alle variabelen zetten voor de betaling
+    $arg['ipaddress'] = $_SERVER['REMOTE_ADDR'];
+
+    $arg['billing_firstname'] = $order_info['b_firstname'];
+    $arg['billing_lastname'] = $order_info['b_lastname'];
+    $arg['billing_mail'] = $order_info['email'];
+    $arg['billing_company'] = (isset($order_info['company'])) ? $order_info['company'] : '';
+    $arg['billing_address1'] = $order_info['b_address'];
+    $arg['billing_address2'] = $order_info['b_address_2'];
+    $arg['billing_city'] = $order_info['b_city'];
+    $arg['billing_zip'] = $order_info['b_zipcode'];
+    $arg['billing_country'] = $order_info['b_country_descr'];
+    $arg['billing_countrycode'] = $order_info['b_country'];
+    if (isset($order_info['payment_info']['phone'])) {
+        $arg['billing_phone'] = $order_info['payment_info']['phone'];
     } else {
-        
-        // alle variabelen zetten voor de betaling
-        $arg['ipaddress'] = $_SERVER['REMOTE_ADDR'];
-        
-        $arg['billing_firstname'] = $order_info['b_firstname'];
-        $arg['billing_lastname'] = $order_info['b_lastname'];
-        $arg['billing_mail'] = $order_info['email'];
-        $arg['billing_company'] = (isset($order_info['company'])) ? $order_info['company'] : '';
-        $arg['billing_address1'] = $order_info['b_address'];
-        $arg['billing_address2'] = $order_info['b_address_2'];
-        $arg['billing_city'] = $order_info['b_city'];
-        $arg['billing_zip'] = $order_info['b_zipcode'];
-        $arg['billing_country'] = $order_info['b_country_descr'];
-        $arg['billing_countrycode'] = $order_info['b_country'];
-        if (isset($order_info['payment_info']['phone'])) {
-            $arg['billing_phone'] = $order_info['payment_info']['phone'];
-        } else {
-            $arg['billing_phone'] = $order_info['b_phone'];
-        }
-        
-        $arg['shipping_firstname'] = $order_info['s_firstname'];
-        $arg['shipping_lastname'] = $order_info['s_lastname'];
-        $arg['shipping_mail'] = $order_info['email'];
-        $arg['shipping_company'] = (isset($order_info['company'])) ? $order_info['company'] : '';
-        $arg['shipping_address1'] = $order_info['s_address'];
-        $arg['shipping_address2'] = $order_info['s_address_2'];
-        $arg['shipping_zip'] = $order_info['s_zipcode'];
-        $arg['shipping_city'] = $order_info['s_city'];
-        $arg['shipping_country'] = $order_info['s_country_descr'];
-        $arg['shipping_countrycode'] = $order_info['s_country'];
-        $arg['shipping_phone'] = $order_info['s_phone'];
-        $arg['shipping'] = $order_info['shipping_cost'];
-        
-        // producten en taxes
-        // kijken hoeveel btw aanwzig is
-        $arg['tax'] = 0;
-        foreach ($order_info['taxes'] as $tax) {
-            $arg['tax'] += $tax['tax_subtotal'];
-        }
-        
-        $arg['currency'] = $currency;
-        
-        if (isset($order_info['payment_method']['processor_params']['include']) && $order_info['payment_method']['processor_params']['include'] == 'on')
-            $arg['including'] = 'true';
-        
-        if (isset($order_info['payment_method']['processor_params']['include']))
-            $arg['inlcuding'] = $order_info['payment_method']['params']['days'];
-            
-            // producten
-            // producten ophalen en prijzen berekenen
-        $items = array();
-        $nr = 0;
-        
-        foreach ($order_info['products'] as $product) {
-            
-            $nr ++;
-            $items[$nr]['type'] = 'product';
-            $items[$nr]['model'] = $product['product_code'];
-            $items[$nr]['name'] = $product['product'];
-            $items[$nr]['quantity'] = $product['amount'];
-            
-            $netprice = fn_format_price($product['price'], $currency);
-            $taxrate = 0;
-            
-            $product_data = fn_get_product_data($product['product_id'], $_SESSION['auth'], $order_info['lang_code'], '');
-            
-            foreach ($order_info['taxes'] as $key => $tax) {
-                if (in_array($key, $product_data['tax_ids']) && $tax['price_includes_tax'] == 'Y') {
-                    if ($tax['rate_type'] == 'P') {
-                        $netprice = ($netprice * 100.0) / (100.0 + $tax['rate_value']);
-                    }
+        $arg['billing_phone'] = $order_info['b_phone'];
+    }
+
+    $arg['shipping_firstname'] = $order_info['s_firstname'];
+    $arg['shipping_lastname'] = $order_info['s_lastname'];
+    $arg['shipping_mail'] = $order_info['email'];
+    $arg['shipping_company'] = (isset($order_info['company'])) ? $order_info['company'] : '';
+    $arg['shipping_address1'] = $order_info['s_address'];
+    $arg['shipping_address2'] = $order_info['s_address_2'];
+    $arg['shipping_zip'] = $order_info['s_zipcode'];
+    $arg['shipping_city'] = $order_info['s_city'];
+    $arg['shipping_country'] = $order_info['s_country_descr'];
+    $arg['shipping_countrycode'] = $order_info['s_country'];
+    $arg['shipping_phone'] = $order_info['s_phone'];
+    $arg['shipping'] = $order_info['shipping_cost'];
+
+    // producten en taxes
+    // kijken hoeveel btw aanwzig is
+    $arg['tax'] = 0;
+    foreach ($order_info['taxes'] as $tax) {
+        $arg['tax'] += $tax['tax_subtotal'];
+    }
+
+    $arg['currency'] = $currency;
+
+    if (isset($order_info['payment_method']['processor_params']['include']) && $order_info['payment_method']['processor_params']['include'] == 'on')
+        $arg['including'] = 'true';
+
+    if (isset($order_info['payment_method']['processor_params']['include']))
+        $arg['inlcuding'] = $order_info['payment_method']['params']['days'];
+
+        // producten
+        // producten ophalen en prijzen berekenen
+    $items = array();
+    $nr = 0;
+
+    foreach ($order_info['products'] as $product) {
+
+        $nr ++;
+        $items[$nr]['type'] = 'product';
+        $items[$nr]['model'] = $product['product_code'];
+        $items[$nr]['name'] = $product['product'];
+        $items[$nr]['quantity'] = $product['amount'];
+
+        $netprice = fn_format_price($product['price'], $currency);
+        $taxrate = 0;
+
+        $product_data = fn_get_product_data($product['product_id'], $_SESSION['auth'], $order_info['lang_code'], '');
+
+        foreach ($order_info['taxes'] as $key => $tax) {
+            if (in_array($key, $product_data['tax_ids']) && $tax['price_includes_tax'] == 'Y') {
+                if ($tax['rate_type'] == 'P') {
+                    $netprice = ($netprice * 100.0) / (100.0 + $tax['rate_value']);
                 }
             }
-            
-            $total = round($netprice * 100.0, 0);
-            $netprice = $total;
-            $taxrate = 0;
-            
-            foreach ($order_info['taxes'] as $key => $tax) {
-                if (in_array($key, $product_data['tax_ids'])) {
-                    if ($tax['rate_type'] == 'P') {
-                        $total = $total * ((100.0 + $tax['rate_value']) / 100.0);
-                        $taxrate += ($tax['rate_value']);
-                    }
+        }
+
+        $total = round($netprice * 100.0, 0);
+        $netprice = $total;
+        $taxrate = 0;
+
+        foreach ($order_info['taxes'] as $key => $tax) {
+            if (in_array($key, $product_data['tax_ids'])) {
+                if ($tax['rate_type'] == 'P') {
+                    $total = $total * ((100.0 + $tax['rate_value']) / 100.0);
+                    $taxrate += ($tax['rate_value']);
                 }
             }
-            $total = round($total, 0);
-            
-            $items[$nr]['price_wt'] = $total;
-            $items[$nr]['vat'] = $taxrate;
-            $items[$nr]['vat_amount'] = $total - $netprice;
         }
+        $total = round($total, 0);
+
+        $items[$nr]['price_wt'] = $total;
+        $items[$nr]['vat'] = $taxrate;
+        $items[$nr]['vat_amount'] = $total - $netprice;
         
         // producten
         // verzendkosten toevoegen aan de producten
