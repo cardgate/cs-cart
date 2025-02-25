@@ -6,7 +6,7 @@
 
 ## Support
 
-This plugin supports CS.Cart version **4.4.x-4.15.x**
+This plugin supports CS.Cart version **4.4.x-4.18.x**
 
 ## Preparation
 
@@ -27,11 +27,11 @@ Please visit [My CardGate](https://my.cardgate.com/) and retrieve your credentia
 
 1. Login to the **admin** of your webshop.
 
-2. Go to **Add-ons**, and choose **Manage add-ons**.
+2. Go to **Add-ons, Downloaded add ons**, and choose the **All Tab**.
 
 3. Use the Search Box to find the CardGate add-on and click **Install**.
 
-4. Click on **Settings** of the installed add-on.
+4. Click on the **CA logo** of the installed add-on, and choose **Settings**.
 
 5. Set the Mode to **Test** for a test transaction.
 
@@ -45,7 +45,7 @@ Please visit [My CardGate](https://my.cardgate.com/) and retrieve your credentia
 
 10. Next, create the **specific** CardGate payment methods that you want to use in your shop.
 
-11. Choose **Payment methods** in the **Administration** menu.
+11. Choose on the left below **Settings, Payment methods** in the **Administration** menu.
 
 12. Click on the **Add payment** button. 
 

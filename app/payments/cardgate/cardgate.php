@@ -100,7 +100,7 @@ class Cardgate
     // version
     const pluginName = 'cs_cart';
 
-    const pluginVersion = '4.5.3';
+    const pluginVersion = '4.5.4';
 
     public function __construct($merchant_id, $api_key, $site_id)
     {
@@ -167,10 +167,6 @@ class Cardgate
             $this->errorMessage = "No returnurl";
             return - 6;
         }
-        if (! $this->issuerId && $this->payment == 'ideal') {
-            $this->errorMessage = "No issuer or payment";
-            return - 7;
-        }
         if (! $this->entranceCode)
             $this->entranceCode = $this->purchaseId;
         
@@ -193,9 +189,6 @@ class Cardgate
             
             // Configure payment option.
             $oTransaction->setPaymentMethod($this->payment);
-            if ('ideal' == $this->payment) {
-                $oTransaction->setIssuer($this->issuerId);
-            }
             
             // Configure customer.
             $oConsumer = $oTransaction->getConsumer();
@@ -255,61 +248,6 @@ class Cardgate
             return - 9;
         }
         return 0;
-    }
-
-    public function getBankOptions()
-    {
-	    $params =fn_get_cardgate_settings();
-        $this->checkBankOptions($params);
-
-	    $params =fn_get_cardgate_settings();
-        $aOptions = unserialize($params['cg_issuers']);
-
-        return $aOptions;
-    }
-    
-    private function checkBankOptions($params) {
-	    if (key_exists('issuerrefresh', $params)) {
-            $iIssuerRefresh = (int) $params['issuerrefresh'];
-            if ($iIssuerRefresh < time()) {
-                $this->cacheBankOptions($params);
-            }
-        } else {
-            $this->cacheBankOptions($params);
-        }
-    }
-    
-    private function cacheBankOptions($params) {
-        $iCacheTime = 24 * 60 * 60;
-        $iIssuerRefresh = time() + $iCacheTime;
-        $params['issuerrefresh'] = $iIssuerRefresh;
-        
-        $bTestMode = ($params['mode']=='test' ? true:false);
-        
-        try {
-          
-            $oCardGate = new \cardgate\api\Client((int) $params['merchant_id'], $params['api_key'], $bTestMode);
-            $oCardGate->setIp($_SERVER['REMOTE_ADDR']);
-            
-            $aIssuers = $oCardGate->methods()
-            ->get(cardgate\api\Method::IDEAL)
-            ->getIssuers();
-        } catch (cardgate\api\Exception $oException_) {
-            $aIssuers[0] = [
-                'id' => 0,
-                'name' => htmlspecialchars($oException_->getMessage())
-            ];
-        }
-        
-        $aOptions = [];
-        foreach ($aIssuers as $aIssuer) {
-            $aOptions[$aIssuer['id']] = $aIssuer['name'];
-        }
-       
-        $params['cg_issuers'] = serialize($aOptions);
-        if (array_key_exists("INGBNL2A", $aOptions)) {
-	        fn_update_cardgate_settings($params);
-        }
     }
 
     public function hashCheck($data, $hashKey, $testMode)
