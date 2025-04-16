@@ -120,14 +120,10 @@ if (defined('PAYMENT_NOTIFICATION')) {
         exit();
     }
 
-    $pp_response = array();
-
-    echo '<div style="text-align: center;"><img src="images/cardgate/' . $filename . '.png" alt="payment logo" /> </div>';
-    
-    $arg = array();
-
-    $currency = $cg_settings['general']['currency'];
-    $amount = round(fn_format_price($order_info['total'], $currency) * 100);
+    $pp_response    = array();
+    $arg            = array();
+    $currency       = $cg_settings['general']['currency'];
+    $amount         = round(fn_format_price($order_info['total'], $currency) * 100);
 
 
     // alle variabelen zetten voor de betaling
@@ -388,8 +384,8 @@ if (defined('PAYMENT_NOTIFICATION')) {
                 fn_redirect(fn_url("payment_notification.return?payment=" . $filename . "&order_id=" . $order_id, AREA, 'current'));
                 exit();
             } else {
-                fn_redirect($url, true, true);
-                exit();
+                header('Location: ' . $url);
+                exit;
             }
         }
     }
